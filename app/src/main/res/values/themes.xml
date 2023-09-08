@@ -1,8 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Wistron_interview" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.Wistron_interview" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<!--         <item name="colorPrimary">@color/white</item>-->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+
     </style>
 
     <style name="Theme.Wistron_interview" parent="Base.Theme.Wistron_interview" />
