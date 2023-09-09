@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wistron_interview.BaseFragment
-import com.example.wistron_interview.DistrictAdapter
 import com.example.wistron_interview.databinding.FragmentHomeBinding
+
 
 class HomeFragment : BaseFragment() {
     private lateinit var viewModel: HomeViewModel

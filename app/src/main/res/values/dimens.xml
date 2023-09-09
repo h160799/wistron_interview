@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="status_bar_height">45dp</dimen>
+    <dimen name="indicator_bottom_margin">10dp</dimen>
+
 </resources>

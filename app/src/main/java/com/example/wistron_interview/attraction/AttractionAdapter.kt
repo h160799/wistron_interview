@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wistron_interview.databinding.ItemAttractionBinding
 
@@ -14,7 +15,8 @@ class AttractionAdapter(private val dataList: List<String>) :
 
     private val onItemClickListener = View.OnClickListener { view: View? ->
         view?.let {
-            val position = it.tag as Int
+            val action = AttractionFragmentDirections.actionNavigationAttractionToNavigationDetail()
+            Navigation.findNavController(it).navigate(action)
         }
     }
 
@@ -34,5 +36,4 @@ class AttractionAdapter(private val dataList: List<String>) :
     override fun getItemCount(): Int {
         return 10
     }
-
 }

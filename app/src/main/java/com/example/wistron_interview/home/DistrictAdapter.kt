@@ -1,19 +1,13 @@
-package com.example.wistron_interview
+package com.example.wistron_interview.home
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.NavHostFragment.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.wistron_interview.databinding.ItemDistrictBinding
-import com.example.wistron_interview.home.HomeFragment
-import com.example.wistron_interview.home.HomeFragmentDirections
 
 class DistrictAdapter(private val dataList: List<String>) :
     RecyclerView.Adapter<DistrictAdapter.ViewHolder>() {
@@ -24,7 +18,6 @@ class DistrictAdapter(private val dataList: List<String>) :
             view?.let {
                 val action = HomeFragmentDirections.actionNavigationHomeToNavigationAttraction()
                 Navigation.findNavController(it).navigate(action)
-
             }
         }
 
