@@ -1,11 +1,13 @@
 package com.example.wistron_interview.home
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wistron_interview.BaseFragment
+import com.example.wistron_interview.R
 import com.example.wistron_interview.databinding.FragmentHomeBinding
 
 
@@ -28,8 +30,17 @@ class HomeFragment : BaseFragment() {
         val adapter= DistrictAdapter(listOf(""))
         recyclerView.adapter = adapter
         adapter.notifyDataSetChanged()
-    }
 
+        binding.languagesChange.setOnClickListener {
+            androidx.appcompat.app.AlertDialog.Builder(requireContext())
+                .setTitle(R.string.languages_choose)
+                .setCancelable(false)
+                .setPositiveButton(R.string.ok) { _, _ ->
+                }
+                .show()
+        }
+
+    }
     override fun onResume() {
         super.onResume()
         showLoader(View.GONE)
