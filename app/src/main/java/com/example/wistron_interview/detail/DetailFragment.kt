@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.wistron_interview.BaseFragment
 import com.example.wistron_interview.R
@@ -36,7 +37,7 @@ class DetailFragment : BaseFragment() {
 
 
         //照片輪播
-        CycleViewPager2Helper(binding.imageAdPager)
+        CycleViewPager2Helper(binding.imagePager)
             .setAdapter(context?.let { DetailImageAdapter(imageList, it) })
             .setDotsIndicator(
                 20f,
@@ -50,6 +51,10 @@ class DetailFragment : BaseFragment() {
             )
             .setAutoTurning(3000L)
             .build()
+
+        binding.back.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
 
     }

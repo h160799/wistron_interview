@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">台北旅遊趣</string>
+    <string name="languages_choose">Pilih Bahasa</string>
+    <string name="ok">Konfirmasi</string>
+    <string name="first_page_title">Nikmati Liburan di Taipei</string>
+    <string name="second_page_title">Tempat Wisata</string>
+
+    <string-array name="language_choose">
+        <item>正體中文</item>
+        <item>简体中文</item>
+        <item>English</item>
+        <item>日本語</item>
+        <item>한국어</item>
+        <item>Español</item>
+        <item>Bahasa Indonesia</item>
+        <item>ไทย</item>
+        <item>Tiếng Việt</item>
+    </string-array>
+
+    <string-array name="district_name">
+        <item>Terdekat dengan Saya</item>
+        <item>Distrik Daan</item>
+        <item>Distrik Xinyi</item>
+        <item>Distrik Wenshan</item>
+        <item>Distrik Shilin</item>
+        <item>Distrik Beitou</item>
+        <item>Distrik Zhongshan</item>
+        <item>Distrik Zhongzheng</item>
+        <item>Distrik Wanhua</item>
+        <item>Distrik Nangang</item>
+        <item>Distrik Songshan</item>
+        <item>Distrik Datong</item>
+        <item>Distrik Neihu</item>
+    </string-array>
+
+</resources>

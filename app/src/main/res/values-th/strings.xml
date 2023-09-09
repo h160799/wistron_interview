@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">台北旅遊趣</string>
+    <string name="languages_choose">เลือกภาษา</string>
+    <string name="ok">ยืนยัน</string>
+    <string name="first_page_title">เที่ยวไต้หวันให้สนุก</string>
+    <string name="second_page_title">สถานที่ท่องเที่ยว</string>
+
+    <string-array name="language_choose">
+        <item>正體中文</item>
+        <item>简体中文</item>
+        <item>English</item>
+        <item>日本語</item>
+        <item>한국어</item>
+        <item>Español</item>
+        <item>Bahasa Indonesia</item>
+        <item>ไทย</item>
+        <item>Tiếng Việt</item>
+    </string-array>
+
+    <string-array name="district_name">
+        <item>ใกล้ที่สุดกับฉัน</item>
+        <item>เขตด่าน</item>
+        <item>เขตสินธร</item>
+        <item>เขตเวนซ่าน</item>
+        <item>เขตชิลิน</item>
+        <item>เขตเปโต</item>
+        <item>เขตจงชาน</item>
+        <item>เขตจงเจิ้ง</item>
+        <item>เขตวันฮัว</item>
+        <item>เขตนางาง</item>
+        <item>เขตสงศาน</item>
+        <item>เขตดาตง</item>
+        <item>เขตเนอิฮู</item>
+    </string-array>
+
+
+</resources>

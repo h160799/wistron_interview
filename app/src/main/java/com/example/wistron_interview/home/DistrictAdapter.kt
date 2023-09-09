@@ -35,12 +35,13 @@ class DistrictAdapter(private val dataList: List<String>) :
         val randomHeight = heights.random()
         layoutParams.height = randomHeight
 
-        binding.districtText.text = "大安區"
         binding.root.tag = position
+        binding.districtText.text = dataList[position]
         binding.root.setOnClickListener(onItemClickListener)
+
     }
 
     override fun getItemCount(): Int {
-        return 13
+        return dataList.size
     }
 }

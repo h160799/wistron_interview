@@ -20,9 +20,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="台北旅遊趣"
+            android:text="Nikmati Liburan di Taipei"
             android:textColor="@android:color/black"
-            android:textSize="30sp"
+            android:textSize="26sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +33,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="end"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="20dp"
             android:src="@drawable/languages_change" />
 
     </androidx.appcompat.widget.Toolbar>

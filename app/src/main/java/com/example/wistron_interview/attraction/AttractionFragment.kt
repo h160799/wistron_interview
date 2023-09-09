@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wistron_interview.BaseFragment
 import com.example.wistron_interview.databinding.FragmentAttractionBinding
@@ -29,5 +30,9 @@ class AttractionFragment : BaseFragment() {
         val adapter = AttractionAdapter(listOf(""))
         recyclerView.adapter = adapter
         adapter.notifyDataSetChanged()
+
+        binding.back.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 }

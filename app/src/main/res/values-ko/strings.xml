@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">台北旅遊趣</string>
+    <string name="languages_choose">언어 선택</string>
+    <string name="ok">확인</string>
+    <string name="first_page_title">타이페이 여행 즐기기</string>
+    <string name="second_page_title">관광 명소</string>
+
+    <string-array name="language_choose">
+        <item>正體中文</item>
+        <item>简体中文</item>
+        <item>English</item>
+        <item>日本語</item>
+        <item>한국어</item>
+        <item>Español</item>
+        <item>Bahasa Indonesia</item>
+        <item>ไทย</item>
+        <item>Tiếng Việt</item>
+    </string-array>
+
+    <string-array name="district_name">
+        <item>내 근처</item>
+        <item>대안구</item>
+        <item>신이구</item>
+        <item>문산구</item>
+        <item>시린구</item>
+        <item>북투구</item>
+        <item>중산구</item>
+        <item>중정구</item>
+        <item>완화구</item>
+        <item>남강구</item>
+        <item>송산구</item>
+        <item>대동구</item>
+        <item>내후구</item>
+    </string-array>
+
+
+</resources>

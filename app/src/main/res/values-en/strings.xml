@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">台北旅遊趣</string>
+    <string name="languages_choose">Please Choose Language</string>
+    <string name="ok">OK</string>
+    <string name="first_page_title">Taipei Travel Fun</string>
+    <string name="second_page_title">Tour Attractions</string>
+
+    <string-array name="language_choose">
+        <item>正體中文</item>
+        <item>简体中文</item>
+        <item>English</item>
+        <item>日本語</item>
+        <item>한국어</item>
+        <item>Español</item>
+        <item>Bahasa Indonesia</item>
+        <item>ไทย</item>
+        <item>Tiếng Việt</item>
+    </string-array>
+
+    <string-array name="district_name">
+        <item>Nearest To Me</item>
+        <item>Daan District</item>
+        <item>Xinyi District</item>
+        <item>Wenshan District</item>
+        <item>Shilin District</item>
+        <item>Beitou District</item>
+        <item>Zhongshan District</item>
+        <item>Zhongzheng District</item>
+        <item>Wanhua District</item>
+        <item>Nangang District</item>
+        <item>Songshan District</item>
+        <item>Datong District</item>
+        <item>Neihu District</item>
+    </string-array>
+
+
+</resources>
+
+

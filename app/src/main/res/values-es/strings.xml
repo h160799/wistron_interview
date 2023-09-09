@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">台北旅遊趣</string>
+    <string name="languages_choose">Seleccionar idioma</string>
+    <string name="ok">Confirmar</string>
+    <string name="first_page_title">Disfruta de Taiwán</string>
+    <string name="second_page_title">Atracciones turísticas</string>
+
+    <string-array name="language_choose">
+        <item>正體中文</item>
+        <item>简体中文</item>
+        <item>English</item>
+        <item>日本語</item>
+        <item>한국어</item>
+        <item>Español</item>
+        <item>Bahasa Indonesia</item>
+        <item>ไทย</item>
+        <item>Tiếng Việt</item>
+    </string-array>
+
+    <string-array name="district_name">
+        <item>Lo Más Cercano a Mí</item>
+        <item>Distrito de Daan</item>
+        <item>Distrito de Xinyi</item>
+        <item>Distrito de Wenshan</item>
+        <item>Distrito de Shilin</item>
+        <item>Distrito de Beitou</item>
+        <item>Distrito de Zhongshan</item>
+        <item>Distrito de Zhongzheng</item>
+        <item>Distrito de Wanhua</item>
+        <item>Distrito de Nangang</item>
+        <item>Distrito de Songshan</item>
+        <item>Distrito de Datong</item>
+        <item>Distrito de Neihu</item>
+    </string-array>
+
+
+</resources>
+

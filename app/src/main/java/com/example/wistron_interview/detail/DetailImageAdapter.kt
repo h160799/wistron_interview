@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.wistron_interview.databinding.ItemDetailImageBinding
-import com.example.wistron_interview.home.HomeFragmentDirections
 import com.github.chrisbanes.photoview.PhotoView
 import com.wangpeiyuan.cycleviewpager2.adapter.CyclePagerAdapter
 
