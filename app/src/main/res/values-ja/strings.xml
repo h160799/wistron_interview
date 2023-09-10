@@ -4,6 +4,9 @@
     <string name="ok">确定</string>
     <string name="first_page_title">台北観光楽しみ</string>
     <string name="second_page_title">観光名所</string>
+    <string name="no_internet">インターネットに接続していません。</string>
+    <string name="error_check_internet">異常なエラーが発生しました。ネットワーク接続を確認するか、後で再試行してください。</string>
+
 
     <string-array name="language_choose">
         <item>正體中文</item>

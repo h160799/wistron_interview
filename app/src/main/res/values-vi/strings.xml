@@ -4,6 +4,9 @@
     <string name="ok">Xác nhận</string>
     <string name="first_page_title">Trải nghiệm du lịch Đài Bắc</string>
     <string name="second_page_title">Địa điểm du lịch</string>
+    <string name="no_internet">Bạn chưa kết nối với Internet.</string>
+    <string name="error_check_internet">Đã xảy ra lỗi bất thường, vui lòng kiểm tra kết nối internet của bạn hoặc thử lại sau.</string>
+
 
     <string-array name="language_choose">
         <item>正體中文</item>

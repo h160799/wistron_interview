@@ -4,6 +4,9 @@
     <string name="ok">確定</string>
     <string name="first_page_title">台北旅遊趣</string>
     <string name="second_page_title">旅遊景點</string>
+    <string name="no_internet">您尚未連接網路</string>
+    <string name="error_check_internet">發生異常錯誤，請確認網絡連線或稍後再試</string>
+
 
     <string-array name="language_choose">
     <item>正體中文</item>

@@ -4,6 +4,9 @@
     <string name="ok">Konfirmasi</string>
     <string name="first_page_title">Nikmati Liburan di Taipei</string>
     <string name="second_page_title">Tempat Wisata</string>
+    <string name="no_internet"> Anda tidak terhubung ke internet.</string>
+    <string name="error_check_internet">Terjadi kesalahan yang tidak normal, harap periksa koneksi internet Anda atau coba lagi nanti.</string>
+
 
     <string-array name="language_choose">
         <item>正體中文</item>

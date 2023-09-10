@@ -42,12 +42,25 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
 
+        <argument
+            android:name="lang"
+            app:argType="string" />
+
+        <argument
+            android:name="page"
+            app:argType="integer"
+            android:defaultValue="1"/>
+
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.wistron_interview.detail.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail">
+
+        <!--        <argument-->
+        <!--            android:name="place"-->
+        <!--            app:argType="com.example.wistron_interview.data.Place" />-->
 
     </fragment>
 

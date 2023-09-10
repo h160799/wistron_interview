@@ -4,6 +4,9 @@
     <string name="ok">Confirmar</string>
     <string name="first_page_title">Disfruta de Taiwán</string>
     <string name="second_page_title">Atracciones turísticas</string>
+    <string name="no_internet">No estás conectado a Internet.</string>
+    <string name="error_check_internet">Ha ocurrido un error anormal, por favor verifica tu conexión a Internet o intenta de nuevo más tarde.</string>
+
 
     <string-array name="language_choose">
         <item>正體中文</item>

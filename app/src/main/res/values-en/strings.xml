@@ -4,6 +4,9 @@
     <string name="ok">OK</string>
     <string name="first_page_title">Taipei Travel Fun</string>
     <string name="second_page_title">Tour Attractions</string>
+    <string name="no_internet">You are not connected to the internet.</string>
+    <string name="error_check_internet">An abnormal error has occurred, please check your internet connection or try again later.</string>
+
 
     <string-array name="language_choose">
         <item>正體中文</item>

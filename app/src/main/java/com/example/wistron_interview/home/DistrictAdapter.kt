@@ -16,7 +16,7 @@ class DistrictAdapter(private val dataList: List<String>) :
 
     private val onItemClickListener = View.OnClickListener { view: View? ->
             view?.let {
-                val action = HomeFragmentDirections.actionNavigationHomeToNavigationAttraction()
+                val action = HomeFragmentDirections.actionNavigationHomeToNavigationAttraction("zh-tw")
                 Navigation.findNavController(it).navigate(action)
             }
         }

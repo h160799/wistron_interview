@@ -4,6 +4,9 @@
     <string name="ok">ยืนยัน</string>
     <string name="first_page_title">เที่ยวไต้หวันให้สนุก</string>
     <string name="second_page_title">สถานที่ท่องเที่ยว</string>
+    <string name="no_internet">คุณไม่ได้เชื่อมต่อกับอินเทอร์เน็ต</string>
+    <string name="error_check_internet">เกิดข้อผิดพลาดที่ไม่เป็นปกติ โปรดตรวจสอบการเชื่อมต่ออินเทอร์เน็ตของคุณหรือลองอีกครั้งในภายหลัง</string>
+
 
     <string-array name="language_choose">
         <item>正體中文</item>
