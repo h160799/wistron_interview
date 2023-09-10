@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.wistron_interview.BaseFragment
 import com.example.wistron_interview.databinding.FragmentAttractionBinding
 import com.example.wistron_interview.ext.getVmFactory
+import com.example.wistron_interview.network.LoadApiStatus
 import com.example.wistron_interview.util.Logger
 
 class AttractionFragment : BaseFragment() {
@@ -44,6 +45,18 @@ class AttractionFragment : BaseFragment() {
             recyclerView.adapter = adapter
             adapter.notifyDataSetChanged()
         })
+
+        viewModel.status.observe(viewLifecycleOwner, Observer{
+            if (it == LoadApiStatus.LOADING){
+                binding.loadingLottie.visibility = View.VISIBLE
+            }else{
+                binding.loadingLottie.visibility = View.GONE
+            }
+        })
+
+
+
+
 
         binding.back.setOnClickListener {
             findNavController().popBackStack()
