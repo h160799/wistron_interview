@@ -4,24 +4,29 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.wistron_interview.R
 import com.example.wistron_interview.data.Place
 import com.example.wistron_interview.databinding.ItemAttractionBinding
 
-class AttractionAdapter(private val placeList: List<Place>) :
-    RecyclerView.Adapter<AttractionAdapter.ViewHolder>() {
+class AttractionAdapter(private val viewModel: AttractionViewModel) :
+    ListAdapter<Place, AttractionAdapter.ViewHolder>(PlaceDiffCallback()) {
 
     class ViewHolder(val binding: ItemAttractionBinding) : RecyclerView.ViewHolder(binding.root)
 
-    private val onItemClickListener = View.OnClickListener { view: View? ->
-        view?.let {
-            val position = it.tag as Int
-//            val action = AttractionFragmentDirections.actionNavigationAttractionToNavigationDetail(placeList[position])
-//            Navigation.findNavController(it).navigate(action)
+    class PlaceDiffCallback : DiffUtil.ItemCallback<Place>() {
+
+        override fun areItemsTheSame(oldItem: Place, newItem: Place): Boolean {
+            return oldItem.id == newItem.id
+        }
+
+        override fun areContentsTheSame(oldItem: Place, newItem: Place): Boolean {
+            return oldItem == newItem
         }
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemAttractionBinding.inflate(inflater, parent, false)
@@ -33,20 +38,33 @@ class AttractionAdapter(private val placeList: List<Place>) :
         val binding = holder.binding
         binding.root.tag = position
 
-        if(placeList[position].images.isNotEmpty()){
+        val placeList = viewModel.attractionItems.value?.data ?: emptyList()
+        val place = placeList[position]
+
+        if(place.images.isNotEmpty()){
             Glide.with(binding.attractionImage)
-                .load(placeList[position].images[1].src)
+                .load(place.images[0].src)
+                .placeholder(R.drawable.no_image)
                 .into(binding.attractionImage)
             binding.attractionPlaceHolder.visibility = View.GONE
         }else{
-            binding.attractionPlaceHolder.visibility = View.VISIBLE
+            Glide.with(binding.attractionImage)
+                .load(R.drawable.error_image)
+                .placeholder(R.drawable.no_image)
+                .into(binding.attractionImage)
+            binding.attractionPlaceHolder.visibility = View.GONE
         }
-        binding.titleTv.text = placeList[position].name
-        binding.contentTv.text = placeList[position].introduction
-        binding.root.setOnClickListener(onItemClickListener)
+        binding.titleTv.text = place.name
+        binding.contentTv.text = place.introduction
+        binding.root.setOnClickListener { viewModel.selectPlace(place) }
+    }
+
+    override fun onViewRecycled(holder: ViewHolder) {
+        super.onViewRecycled(holder)
+        Glide.with(holder.binding.attractionImage.context).clear(holder.binding.attractionImage)
     }
 
     override fun getItemCount(): Int {
-        return 10
+        return viewModel.attractionItems.value?.data?.size ?: 0
     }
 }

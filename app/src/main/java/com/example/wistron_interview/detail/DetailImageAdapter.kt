@@ -3,6 +3,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.wistron_interview.databinding.ItemDetailImageBinding
@@ -16,10 +17,8 @@ class DetailImageAdapter (private val list: List<String>?, private val context :
         private val onItemClickListener = View.OnClickListener { view: View? ->
             view?.let {
                 val position = it.tag as Int
-
 //                val action = DetailFragmentDirection.actionGlobalImageDialog(list[position])
 //                Navigation.findNavController(it).navigate(action)
-
             }
         }
 

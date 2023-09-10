@@ -7,7 +7,7 @@ enum class LanguageInfo(val lang : String) {
     Japanese("ja"),
     Koren("ko"),
     Spanish("es"),
-    Indonesian("id"),
+    //    Indonesian("id"), api 錯誤
     Thai("th"),
     Vietnamese("vi"),
 

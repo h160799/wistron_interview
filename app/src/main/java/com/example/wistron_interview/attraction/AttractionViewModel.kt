@@ -6,8 +6,11 @@ import androidx.lifecycle.ViewModel
 import com.example.wistron_interview.R
 import com.example.wistron_interview.network.ApiResult
 import com.example.wistron_interview.data.Attraction
+import com.example.wistron_interview.data.AttractionParameters
 import com.example.wistron_interview.data.Place
 import com.example.wistron_interview.data.DataSource.TaipeiTravelRepository
+import com.example.wistron_interview.data.LanguageInfo
+import com.example.wistron_interview.data.LanguageType
 import com.example.wistron_interview.network.LoadApiStatus
 import com.example.wistron_interview.util.Logger
 import com.example.wistron_interview.util.Util.getString
@@ -18,15 +21,14 @@ import kotlinx.coroutines.launch
 
 class AttractionViewModel(
     private val taipeiTravelRepository: TaipeiTravelRepository,
-    private val lang: String,
-    private val page: Int,
-    private val nLat: String,
-    private val eLong: String
+    private val attractionParams: AttractionParameters
 ) : ViewModel() {
     private val _attractionItems = MutableLiveData<Attraction>()
 
     val attractionItems: LiveData<Attraction>
         get() = _attractionItems
+
+    val selectedPlace: MutableLiveData<Place?> = MutableLiveData()
 
     private val _status = MutableLiveData<LoadApiStatus>()
 
@@ -38,10 +40,7 @@ class AttractionViewModel(
     val error: LiveData<String?>
         get() = _error
 
-    private val _navigateToDetail = MutableLiveData<Place?>()
-
-    val navigateToDetail: LiveData<Place?>
-        get() = _navigateToDetail
+    var currentDistrict: String? = null
 
     private var viewModelJob = Job()
 
@@ -60,22 +59,51 @@ class AttractionViewModel(
         getAttractionResult(true)
     }
 
+    fun selectPlace(place: Place?) {
+        selectedPlace.value = place
+    }
+    fun getLanguageSubTitleFromParams(): String {
+        val langFromParams = attractionParams.lang
+
+        val index = LanguageInfo.values().indexOfFirst { it.lang == langFromParams }
+
+        val languageType = LanguageType.fromIndex(index)
+
+        return languageType.toLanguageSubTitle().title
+    }
+
+    fun loadMoreData() {
+        attractionParams.page += 1
+
+        getAttractionResult(false)
+    }
+
     private fun getAttractionResult(isInitial: Boolean = false) {
 
         coroutineScope.launch {
 
             if (isInitial) _status.value = LoadApiStatus.LOADING
 
-            Logger.e("fffffffff${lang}${page}${nLat},${eLong}")
-
-            val result = taipeiTravelRepository.getAttractList(lang, page, nLat.toDouble(), eLong.toDouble())
+            val result = taipeiTravelRepository.getAttractList(
+                attractionParams.lang,
+                attractionParams.page,
+                attractionParams.nLat.toDouble(),
+                attractionParams.eLong.toDouble()
+            )
 
             _attractionItems.value = when (result) {
                 is ApiResult.Success -> {
                     _error.value = null
-                    if (isInitial) _status.value = LoadApiStatus.DONE
-                    result.data
+                    _status.value = LoadApiStatus.DONE
 
+                    val currentData = _attractionItems.value?.data?.toMutableList() ?: mutableListOf()
+                    currentData.addAll(result.data.data)
+
+                    Attraction(
+                        error = _attractionItems.value?.error,
+                        total = _attractionItems.value?.total ?: (0 + result.data.total),
+                        data = currentData
+                    )
                 }
 
                 is ApiResult.Fail -> {
@@ -98,13 +126,5 @@ class AttractionViewModel(
 
             }
         }
-    }
-
-    fun navigateToDetail(place: Place) {
-        _navigateToDetail.value = place
-    }
-
-    fun onDetailNavigated() {
-        _navigateToDetail.value = null
     }
 }

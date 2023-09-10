@@ -3,7 +3,7 @@
     <string name="languages_choose">Please Choose Language</string>
     <string name="ok">OK</string>
     <string name="first_page_title">Taipei Travel Fun</string>
-    <string name="second_page_title">Tour Attractions</string>
+    <string name="second_page_title">Nearby tourist attractions</string>
     <string name="no_internet">You are not connected to the internet.</string>
     <string name="error_check_internet">An abnormal error has occurred, please check your internet connection or try again later.</string>
 
@@ -15,7 +15,7 @@
         <item>日本語</item>
         <item>한국어</item>
         <item>Español</item>
-        <item>Bahasa Indonesia</item>
+<!--        <item>Bahasa Indonesia</item>-->
         <item>ไทย</item>
         <item>Tiếng Việt</item>
     </string-array>

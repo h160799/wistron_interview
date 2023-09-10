@@ -3,7 +3,7 @@
     <string name="languages_choose">언어 선택</string>
     <string name="ok">확인</string>
     <string name="first_page_title">타이페이 여행 즐기기</string>
-    <string name="second_page_title">관광 명소</string>
+    <string name="second_page_title">근처 관광지</string>
     <string name="no_internet">인터넷에 연결되어 있지 않습니다.</string>
     <string name="error_check_internet">비정상적인 오류가 발생했습니다. 인터넷 연결을 확인하거나 나중에 다시 시도하세요.</string>
 
@@ -15,7 +15,7 @@
         <item>日本語</item>
         <item>한국어</item>
         <item>Español</item>
-        <item>Bahasa Indonesia</item>
+<!--        <item>Bahasa Indonesia</item>-->
         <item>ไทย</item>
         <item>Tiếng Việt</item>
     </string-array>

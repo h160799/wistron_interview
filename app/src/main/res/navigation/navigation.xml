@@ -43,21 +43,8 @@
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
 
         <argument
-            android:name="lang"
-            app:argType="string" />
-
-        <argument
-            android:name="page"
-            android:defaultValue="1"
-            app:argType="integer" />
-
-        <argument
-            android:name="nLat"
-            app:argType="string" />
-
-        <argument
-            android:name="eLong"
-            app:argType="string" />
+            android:name="attractionParams"
+            app:argType="com.example.wistron_interview.data.AttractionParameters" />
 
     </fragment>
 
@@ -67,9 +54,9 @@
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail">
 
-<!--        <argument-->
-<!--            android:name="place"-->
-<!--            app:argType="com.example.wistron_interview.data.Place" />-->
+        <argument
+            android:name="place"
+            app:argType="com.example.wistron_interview.data.Place" />
 
     </fragment>
 
