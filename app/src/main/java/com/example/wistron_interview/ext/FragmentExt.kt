@@ -10,12 +10,8 @@ fun Fragment.getVmFactory(): ViewModelFactory {
     return ViewModelFactory(repository)
 }
 
-fun Fragment.getVmFactory(lang: String, page: Int): ViewModelFactory {
+fun Fragment.getVmFactory(lang: String, page: Int, nLat: String, eLong: String,): ViewModelFactory {
     val repository = (requireContext().applicationContext as TaipeiTravelApplication).taipeiTravelRepository
-    return ViewModelFactory(repository, lang = lang, page = page)
+    return ViewModelFactory(repository, lang = lang, page = page, nLat = nLat, eLong = eLong)
 }
 
-fun Fragment.getVmFactory(place: Place): ViewModelFactory {
-    val repository = (requireContext().applicationContext as TaipeiTravelApplication).taipeiTravelRepository
-    return ViewModelFactory(repository, place = place)
-}

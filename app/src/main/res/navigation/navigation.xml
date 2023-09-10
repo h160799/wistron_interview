@@ -48,35 +48,44 @@
 
         <argument
             android:name="page"
-            app:argType="integer"
-            android:defaultValue="1"/>
+            android:defaultValue="1"
+            app:argType="integer" />
+
+        <argument
+            android:name="nLat"
+            app:argType="string" />
+
+        <argument
+            android:name="eLong"
+            app:argType="string" />
 
     </fragment>
+
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.wistron_interview.detail.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail">
 
-        <!--        <argument-->
-        <!--            android:name="place"-->
-        <!--            app:argType="com.example.wistron_interview.data.Place" />-->
+<!--        <argument-->
+<!--            android:name="place"-->
+<!--            app:argType="com.example.wistron_interview.data.Place" />-->
 
     </fragment>
 
-    <fragment
-        android:id="@+id/imageDialog"
-        android:name="com.example.wistron_interview.detail.ImageDialog"
-        android:label="ImageDialog">
+    <!--    <fragment-->
+    <!--        android:id="@+id/imageDialog"-->
+    <!--        android:name="com.example.wistron_interview.detail.ImageDialog"-->
+    <!--        android:label="ImageDialog">-->
 
-        <argument
-            android:name="imageInfo"
-            app:argType="string" />
-    </fragment>
+    <!--        <argument-->
+    <!--            android:name="imageInfo"-->
+    <!--            app:argType="string" />-->
+    <!--    </fragment>-->
 
-    <action
-        android:id="@+id/action_global_imageDialog"
-        app:destination="@id/imageDialog" />
+    <!--    <action-->
+    <!--        android:id="@+id/action_global_imageDialog"-->
+    <!--        app:destination="@id/imageDialog" />-->
 
 
 </navigation>

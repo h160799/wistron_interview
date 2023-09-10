@@ -9,7 +9,7 @@ import com.example.wistron_interview.databinding.ItemDetailImageBinding
 import com.github.chrisbanes.photoview.PhotoView
 import com.wangpeiyuan.cycleviewpager2.adapter.CyclePagerAdapter
 
-class DetailImageAdapter (private val list: List<String>, private val context : Context
+class DetailImageAdapter (private val list: List<String>?, private val context : Context
     ) : CyclePagerAdapter<DetailImageAdapter.ViewHolder>() {
         class ViewHolder(val binding: ItemDetailImageBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -30,14 +30,14 @@ class DetailImageAdapter (private val list: List<String>, private val context : 
         }
 
         override fun getRealItemCount(): Int {
-            return list.size
+            return list?.size ?: 0
         }
 
         override fun onBindRealViewHolder(holder: ViewHolder, position: Int) {
             val binding = holder.binding
 
                 Glide.with(binding.itemDetailImage)
-                    .load(list[position])
+                    .load(list?.get(position))
                     .into(binding.itemDetailImage)
 
             binding.root.tag = position
@@ -46,7 +46,7 @@ class DetailImageAdapter (private val list: List<String>, private val context : 
             val photoView: PhotoView = binding.itemDetailImage
 
             Glide.with(photoView)
-                .load(list[position])
+                .load(list?.get(position))
                 .into(photoView)
 
         }

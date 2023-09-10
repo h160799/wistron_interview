@@ -7,7 +7,7 @@ import com.example.wistron_interview.R
 import com.example.wistron_interview.network.ApiResult
 import com.example.wistron_interview.data.Attraction
 import com.example.wistron_interview.data.Place
-import com.example.wistron_interview.data.TaipeiTravelRepository
+import com.example.wistron_interview.data.DataSource.TaipeiTravelRepository
 import com.example.wistron_interview.network.LoadApiStatus
 import com.example.wistron_interview.util.Logger
 import com.example.wistron_interview.util.Util.getString
@@ -19,7 +19,9 @@ import kotlinx.coroutines.launch
 class AttractionViewModel(
     private val taipeiTravelRepository: TaipeiTravelRepository,
     private val lang: String,
-    private val page: Int
+    private val page: Int,
+    private val nLat: String,
+    private val eLong: String
 ) : ViewModel() {
     private val _attractionItems = MutableLiveData<Attraction>()
 
@@ -64,13 +66,16 @@ class AttractionViewModel(
 
             if (isInitial) _status.value = LoadApiStatus.LOADING
 
-            val result = taipeiTravelRepository.getAttractList(lang, page)
+            Logger.e("fffffffff${lang}${page}${nLat},${eLong}")
+
+            val result = taipeiTravelRepository.getAttractList(lang, page, nLat.toDouble(), eLong.toDouble())
 
             _attractionItems.value = when (result) {
                 is ApiResult.Success -> {
                     _error.value = null
                     if (isInitial) _status.value = LoadApiStatus.DONE
                     result.data
+
                 }
 
                 is ApiResult.Fail -> {
@@ -90,6 +95,7 @@ class AttractionViewModel(
                     if (isInitial) _status.value = LoadApiStatus.ERROR
                     null
                 }
+
             }
         }
     }

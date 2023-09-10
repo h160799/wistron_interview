@@ -1,6 +1,7 @@
 package com.example.wistron_interview.attraction
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +20,9 @@ class AttractionFragment : BaseFragment() {
     private val viewModel by viewModels<AttractionViewModel> {
         getVmFactory(
             AttractionFragmentArgs.fromBundle(requireArguments()).lang,
-            AttractionFragmentArgs.fromBundle(requireArguments()).page
+            AttractionFragmentArgs.fromBundle(requireArguments()).page,
+            AttractionFragmentArgs.fromBundle(requireArguments()).nLat,
+            AttractionFragmentArgs.fromBundle(requireArguments()).eLong
         )
     }
 
@@ -36,13 +39,11 @@ class AttractionFragment : BaseFragment() {
 
         viewModel.attractionItems.observe(viewLifecycleOwner, Observer {
             Logger.e(it.total.toString())
+            val recyclerView: RecyclerView = binding.attractionRecyclerView
+            val adapter = AttractionAdapter(it.data)
+            recyclerView.adapter = adapter
+            adapter.notifyDataSetChanged()
         })
-
-        val recyclerView: RecyclerView = binding.attractionRecyclerView
-
-        val adapter = AttractionAdapter(listOf(""))
-        recyclerView.adapter = adapter
-        adapter.notifyDataSetChanged()
 
         binding.back.setOnClickListener {
             findNavController().popBackStack()

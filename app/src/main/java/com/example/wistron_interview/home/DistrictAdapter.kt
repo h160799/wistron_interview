@@ -7,17 +7,26 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.wistron_interview.data.DistrictInfo
+import com.example.wistron_interview.data.LanguageInfo
 import com.example.wistron_interview.databinding.ItemDistrictBinding
 
-class DistrictAdapter(private val dataList: List<String>) :
+class DistrictAdapter(private val districtList: List<String>, checkedItem: Int) :
     RecyclerView.Adapter<DistrictAdapter.ViewHolder>() {
 
     class ViewHolder(val binding: ItemDistrictBinding) : RecyclerView.ViewHolder(binding.root)
 
     private val onItemClickListener = View.OnClickListener { view: View? ->
             view?.let {
-                val action = HomeFragmentDirections.actionNavigationHomeToNavigationAttraction("zh-tw")
-                Navigation.findNavController(it).navigate(action)
+                val position = it.tag as Int
+                if (position in 1 until DistrictInfo.values().size) {
+                    val district = DistrictInfo.values()[position - 1] // 由於列表索引從0開始，需要減1
+                    val languageInfo = LanguageInfo.values()[checkedItem]
+                    val action = HomeFragmentDirections.actionNavigationHomeToNavigationAttraction(
+                        languageInfo.lang, district.nLat, district.eLong
+                    )
+                    Navigation.findNavController(it).navigate(action)
+                }
             }
         }
 
@@ -36,12 +45,11 @@ class DistrictAdapter(private val dataList: List<String>) :
         layoutParams.height = randomHeight
 
         binding.root.tag = position
-        binding.districtText.text = dataList[position]
+        binding.districtText.text = districtList[position]
         binding.root.setOnClickListener(onItemClickListener)
-
     }
 
     override fun getItemCount(): Int {
-        return dataList.size
+        return districtList.size
     }
 }

@@ -5,25 +5,32 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.wistron_interview.BaseFragment
 import com.example.wistron_interview.R
+import com.example.wistron_interview.data.Place
 import com.example.wistron_interview.databinding.FragmentDetailBinding
-import com.github.chrisbanes.photoview.PhotoView
+import com.example.wistron_interview.ext.getVmFactory
 import com.wangpeiyuan.cycleviewpager2.CycleViewPager2Helper
 import com.wangpeiyuan.cycleviewpager2.indicator.DotsIndicator
 
 class DetailFragment : BaseFragment() {
 
-    private lateinit var viewModel: DetailViewModel
     private lateinit var binding: FragmentDetailBinding
-
+    private val viewModel by viewModels<DetailViewModel> { getVmFactory() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+//        arguments?.apply {
+//            val args = DetailFragmentArgs.fromBundle(this)
+//            val place:Place = args.place
+//        }
+
         binding = FragmentDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -31,9 +38,8 @@ class DetailFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val imageList = listOf("https://media.istockphoto.com/id/506472311/zh/%E7%85%A7%E7%89%87/sunrise.jpg?s=612x612&w=0&k=20&c=sbcVyr8IUl10L4h2Sx3252PRkcMUcy6yXZnJOsnPPBQ=",
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqgLIVraWaIHoJangei04bHHhTxpHDTxKX9w&usqp=CAU",
-            "https://taroko.lakeshore.com.tw/wp-content/uploads/sites/145/2021/01/TK-Public-area-%E9%A2%A8%E6%99%AF%E7%85%A7-4.png")
+//        val imageList = place.images.map { it.src}
+        val imageList = listOf("")
 
 
         //照片輪播
