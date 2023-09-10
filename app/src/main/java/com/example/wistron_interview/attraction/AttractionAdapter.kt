@@ -4,16 +4,29 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.wistron_interview.R
 import com.example.wistron_interview.data.Place
 import com.example.wistron_interview.databinding.ItemAttractionBinding
 
 class AttractionAdapter(private val viewModel: AttractionViewModel) :
     ListAdapter<Place, AttractionAdapter.ViewHolder>(PlaceDiffCallback()) {
+
+    private fun ImageView.loadImage(
+        url: String?,
+        placeholder: Int = R.drawable.no_image,
+        error: Int = R.drawable.error_image
+    ) {
+        Glide.with(this.context)
+            .load(url)
+            .apply(RequestOptions().placeholder(placeholder).error(error))
+            .into(this)
+    }
 
     class ViewHolder(val binding: ItemAttractionBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -27,6 +40,7 @@ class AttractionAdapter(private val viewModel: AttractionViewModel) :
             return oldItem == newItem
         }
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemAttractionBinding.inflate(inflater, parent, false)
@@ -41,18 +55,10 @@ class AttractionAdapter(private val viewModel: AttractionViewModel) :
         val placeList = viewModel.attractionItems.value?.data ?: emptyList()
         val place = placeList[position]
 
-        if(place.images.isNotEmpty()){
-            Glide.with(binding.attractionImage)
-                .load(place.images[0].src)
-                .placeholder(R.drawable.no_image)
-                .into(binding.attractionImage)
-            binding.attractionPlaceHolder.visibility = View.GONE
-        }else{
-            Glide.with(binding.attractionImage)
-                .load(R.drawable.error_image)
-                .placeholder(R.drawable.no_image)
-                .into(binding.attractionImage)
-            binding.attractionPlaceHolder.visibility = View.GONE
+        if (place.images.isNotEmpty()) {
+            binding.attractionImage.loadImage(place.images[0].src)
+        } else {
+            binding.attractionImage.loadImage(null)
         }
         binding.titleTv.text = place.name
         binding.contentTv.text = place.introduction

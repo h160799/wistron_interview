@@ -40,8 +40,6 @@ class AttractionViewModel(
     val error: LiveData<String?>
         get() = _error
 
-    var currentDistrict: String? = null
-
     private var viewModelJob = Job()
 
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
@@ -78,6 +76,10 @@ class AttractionViewModel(
         getAttractionResult(false)
     }
 
+    fun clearError() {
+        _error.value = null
+    }
+
     private fun getAttractionResult(isInitial: Boolean = false) {
 
         coroutineScope.launch {
@@ -107,13 +109,13 @@ class AttractionViewModel(
                 }
 
                 is ApiResult.Fail -> {
-                    _error.value = result.error
+                    _error.value = getString(R.string.error_check_internet)
                     if (isInitial) _status.value = LoadApiStatus.ERROR
                     null
                 }
 
                 is ApiResult.Error -> {
-                    _error.value = result.exception.toString()
+                    _error.value = getString(R.string.error_check_internet)
                     if (isInitial) _status.value = LoadApiStatus.ERROR
                     null
                 }

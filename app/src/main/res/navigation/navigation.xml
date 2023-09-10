@@ -77,19 +77,4 @@
 
     </fragment>
 
-    <!--    <fragment-->
-    <!--        android:id="@+id/imageDialog"-->
-    <!--        android:name="com.example.wistron_interview.detail.ImageDialog"-->
-    <!--        android:label="ImageDialog">-->
-
-    <!--        <argument-->
-    <!--            android:name="imageInfo"-->
-    <!--            app:argType="string" />-->
-    <!--    </fragment>-->
-
-    <!--    <action-->
-    <!--        android:id="@+id/action_global_imageDialog"-->
-    <!--        app:destination="@id/imageDialog" />-->
-
-
 </navigation>

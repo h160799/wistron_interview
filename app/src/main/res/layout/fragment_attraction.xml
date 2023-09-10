@@ -15,14 +15,15 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/toolbarTitle"
+            android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textColor="@android:color/black"
-            android:textSize="26sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             android:maxLines="1"
+            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -64,7 +65,7 @@
         app:lottie_speed="1.0"/>
 
     <ImageView
-        android:id="@+id/goToTop"
+        android:id="@+id/go_to_top"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:alpha="0.7"
@@ -74,5 +75,21 @@
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/error_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:padding="16dp"
+        tools:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

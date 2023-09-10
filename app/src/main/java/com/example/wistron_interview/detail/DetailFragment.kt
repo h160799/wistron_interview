@@ -14,14 +14,14 @@ import com.example.wistron_interview.R
 import com.example.wistron_interview.data.Place
 import com.example.wistron_interview.databinding.FragmentDetailBinding
 import com.example.wistron_interview.ext.getVmFactory
+import com.example.wistron_interview.util.Logger
 import com.wangpeiyuan.cycleviewpager2.CycleViewPager2Helper
 import com.wangpeiyuan.cycleviewpager2.indicator.DotsIndicator
 
 class DetailFragment : BaseFragment() {
 
     private lateinit var binding: FragmentDetailBinding
-    private val viewModel by viewModels<DetailViewModel> { getVmFactory() }
-    lateinit var  place : Place
+    private lateinit var place : Place
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +40,11 @@ class DetailFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val imageList = place.images.map { it.src}
+        var imageList = place.images.map { it.src}
+
+        if (imageList.isEmpty()) {
+            imageList = listOf("")
+        }
 
         if (imageList.isNotEmpty()) {
             CycleViewPager2Helper(binding.imagePager)

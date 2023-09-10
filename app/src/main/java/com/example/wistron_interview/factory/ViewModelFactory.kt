@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.wistron_interview.attraction.AttractionViewModel
 import com.example.wistron_interview.data.AttractionParameters
 import com.example.wistron_interview.data.DataSource.TaipeiTravelRepository
-import com.example.wistron_interview.detail.DetailViewModel
 import com.example.wistron_interview.home.HomeViewModel
 
 @Suppress("UNCHECKED_CAST")
@@ -22,9 +21,6 @@ class ViewModelFactory(
                 isAssignableFrom(AttractionViewModel::class.java) -> {
                     requireNotNull(attractionParams)
                     AttractionViewModel(taipeiTravelRepository, attractionParams)
-                }
-                isAssignableFrom(DetailViewModel::class.java) -> {
-                    DetailViewModel(taipeiTravelRepository)
                 }
                 else ->
                     throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")

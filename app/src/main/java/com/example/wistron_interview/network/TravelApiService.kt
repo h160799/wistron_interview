@@ -38,12 +38,14 @@ private val retrofit = Retrofit.Builder()
 interface ApiService {
     @Headers("Accept: application/json")
     @GET("{lang}/Attractions/All")
-    suspend fun getAttractionList(@Path("lang") lang: String = "zh-tw", @Query("nlat") nLat: Double, @Query("elong") eLong: Double, @Query("page") page: Int? = null): Attraction
+    suspend fun getAttractionList(
+        @Path("lang") lang: String = "zh-tw",
+        @Query("nlat") nLat: Double,
+        @Query("elong") eLong: Double,
+        @Query("page") page: Int? = null
+    ): Attraction
 }
 
-/**
- * A public Api object that exposes the lazy-initialized Retrofit service
- */
 object TaipeiTravelApi {
-    val retrofitService : ApiService by lazy { retrofit.create(ApiService::class.java) }
+    val retrofitService: ApiService by lazy { retrofit.create(ApiService::class.java) }
 }

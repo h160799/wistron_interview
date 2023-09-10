@@ -13,6 +13,8 @@ import com.example.wistron_interview.BaseFragment
 import com.example.wistron_interview.databinding.FragmentAttractionBinding
 import com.example.wistron_interview.ext.getVmFactory
 import com.example.wistron_interview.network.LoadApiStatus
+import com.example.wistron_interview.util.Logger
+import com.google.android.material.snackbar.Snackbar
 
 class AttractionFragment : BaseFragment() {
 
@@ -42,7 +44,7 @@ class AttractionFragment : BaseFragment() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
 
-                if(viewModel.status.value == LoadApiStatus.LOADING) return
+                if (viewModel.status.value == LoadApiStatus.LOADING) return
 
                 val layoutManager = recyclerView.layoutManager as LinearLayoutManager
                 val totalItemCount = layoutManager.itemCount
@@ -54,32 +56,8 @@ class AttractionFragment : BaseFragment() {
             }
         })
 
-        viewModel.selectedPlace.observe(viewLifecycleOwner, Observer { place ->
-            place?.let {
-                val action = AttractionFragmentDirections.actionNavigationAttractionToNavigationDetail(it)
-                findNavController().navigate(action)
-                viewModel.selectPlace(null)
-            }
-        })
-
-        viewModel.attractionItems.observe(viewLifecycleOwner, Observer {
-            binding.toolbarTitle.text = viewModel.getLanguageSubTitleFromParams()
-            attractionAdapter.submitList(it.data)
-        })
-
-        viewModel.status.observe(viewLifecycleOwner, Observer{
-            if (it == LoadApiStatus.LOADING){
-                binding.loadingLottie.visibility = View.VISIBLE
-            }else{
-                binding.loadingLottie.visibility = View.GONE
-            }
-        })
-
-        binding.back.setOnClickListener {
-            findNavController().popBackStack()
-        }
-
-        binding.attractionRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        binding.attractionRecyclerView.addOnScrollListener(object :
+            RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
 
@@ -91,6 +69,41 @@ class AttractionFragment : BaseFragment() {
                 }
             }
         })
+
+        viewModel.selectedPlace.observe(viewLifecycleOwner, Observer { place ->
+            place?.let {
+                val action =
+                    AttractionFragmentDirections.actionNavigationAttractionToNavigationDetail(it)
+                findNavController().navigate(action)
+                viewModel.selectPlace(null)
+            }
+        })
+
+        viewModel.attractionItems.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                binding.toolbarTitle.text = viewModel.getLanguageSubTitleFromParams()
+                attractionAdapter.submitList(it.data)
+            }
+        })
+
+        viewModel.status.observe(viewLifecycleOwner, Observer {
+            if (it == LoadApiStatus.LOADING) {
+                binding.loadingLottie.visibility = View.VISIBLE
+            } else {
+                binding.loadingLottie.visibility = View.GONE
+            }
+        })
+
+        viewModel.error.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                binding.errorText.text = it
+                binding.errorText.visibility = View.VISIBLE
+            }
+        })
+
+        binding.back.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
         binding.goToTop.setOnClickListener {
             binding.attractionRecyclerView.scrollToPosition(0)

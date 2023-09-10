@@ -36,15 +36,12 @@ class HomeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        basePosition = TaipeiTravelApplication.instance
-            .getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
-            ?.getInt(KEY_BASE_POSITION, 0) ?: 0
-
-        viewModel.updateCheckItemValue(basePosition)
-
         val recyclerView: RecyclerView = binding.districtRecyclerView
-        val adapter = DistrictAdapter(basePosition, itemHeights)
-        recyclerView.adapter = adapter
+        viewModel.basePosition.observe(viewLifecycleOwner, Observer { position ->
+            val adapter = DistrictAdapter(position, itemHeights)
+            recyclerView.adapter = adapter
+            viewModel.updateCheckItemValue(position)
+        })
 
         viewModel.checkItem.observe(viewLifecycleOwner, Observer {
             val updateAdapter = DistrictAdapter(it, itemHeights)
@@ -55,30 +52,23 @@ class HomeFragment : BaseFragment() {
             binding.toolbarTitle.text = title
         })
 
-        binding.languagesChange.setOnClickListener {
-            viewModel.checkItem.value?.let { checkItemValue ->
+        viewModel.showLanguageDialog.observe(viewLifecycleOwner, Observer { show ->
+            if (show) {
+                val checkItemValue = viewModel.checkItem.value ?: 0
                 androidx.appcompat.app.AlertDialog.Builder(requireContext())
                     .setTitle(R.string.languages_choose).setSingleChoiceItems(
                         R.array.language_choose, checkItemValue
                     ) { _: DialogInterface, which: Int ->
-                        basePosition = which
-                        viewModel.updateCheckItemValue(which)
-                    }.setCancelable(false)
-                    .setPositiveButton(R.string.ok) { dialog, _ ->
-                        val sharedPref = activity?.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
-                        with (sharedPref?.edit()) {
-                            this?.putInt(KEY_BASE_POSITION, basePosition)
-                            this?.commit()
-                        }
+                        viewModel.saveLanguagePreference(which)
+                    }.setCancelable(false).setPositiveButton(R.string.ok) { dialog, _ ->
                         dialog.dismiss()
                     }.show()
+                viewModel.showLanguageDialog.value = false
             }
-        }
-    }
+        })
 
-    companion object {
-        var basePosition = 0
-        private const val PREF_NAME = "Select_Language"
-        private const val KEY_BASE_POSITION = "basePosition"
+        binding.languagesChange.setOnClickListener {
+            viewModel.changeLanguage()
+        }
     }
 }
