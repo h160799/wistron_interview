@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -19,8 +20,8 @@ class DistrictAdapter(private val districtList: List<String>, checkedItem: Int) 
     private val onItemClickListener = View.OnClickListener { view: View? ->
             view?.let {
                 val position = it.tag as Int
-                if (position in 1 until DistrictInfo.values().size) {
-                    val district = DistrictInfo.values()[position - 1] // 由於列表索引從0開始，需要減1
+                if (position in 1 until DistrictInfo.values().size + 1) {
+                    val district = DistrictInfo.values()[position - 1]
                     val languageInfo = LanguageInfo.values()[checkedItem]
                     val action = HomeFragmentDirections.actionNavigationHomeToNavigationAttraction(
                         languageInfo.lang, district.nLat, district.eLong
@@ -29,7 +30,6 @@ class DistrictAdapter(private val districtList: List<String>, checkedItem: Int) 
                 }
             }
         }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemDistrictBinding.inflate(inflater, parent, false)
@@ -47,6 +47,13 @@ class DistrictAdapter(private val districtList: List<String>, checkedItem: Int) 
         binding.root.tag = position
         binding.districtText.text = districtList[position]
         binding.root.setOnClickListener(onItemClickListener)
+        if (position in 1 until DistrictInfo.values().size + 1) {
+            val selectedDistrict = DistrictInfo.values()[position-1]
+            binding.districtImage.background = ContextCompat.getDrawable(
+                binding.districtImage.context, selectedDistrict.Image
+            )
+        }
+
     }
 
     override fun getItemCount(): Int {
