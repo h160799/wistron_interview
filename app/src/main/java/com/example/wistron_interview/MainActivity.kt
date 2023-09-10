@@ -21,13 +21,4 @@ class MainActivity : AppCompatActivity() {
                     or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
 
     }
-
-    override fun onResume() {
-        super.onResume()
-        setLoader(View.GONE)
-    }
-
-    fun setLoader(isVisible: Int) {
-        binding.progressBar.visibility = isVisible
-    }
 }

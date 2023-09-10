@@ -78,5 +78,22 @@ class AttractionFragment : BaseFragment() {
         binding.back.setOnClickListener {
             findNavController().popBackStack()
         }
+
+        binding.attractionRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                val layoutManager = recyclerView.layoutManager as LinearLayoutManager
+                if (layoutManager.findFirstCompletelyVisibleItemPosition() == 0) {
+                    binding.goToTop.visibility = View.GONE
+                } else {
+                    binding.goToTop.visibility = View.VISIBLE
+                }
+            }
+        })
+
+        binding.goToTop.setOnClickListener {
+            binding.attractionRecyclerView.scrollToPosition(0)
+        }
     }
 }

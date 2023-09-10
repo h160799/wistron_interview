@@ -58,6 +58,23 @@
             android:name="place"
             app:argType="com.example.wistron_interview.data.Place" />
 
+        <action
+            android:id="@+id/action_navigation_detail_to_navigation_webView"
+            app:destination="@id/webViewFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.example.wistron_interview.WebViewFragment"
+        android:label="WebViewFragment">
+        <argument
+            android:name="URL"
+            app:argType="string" />
+
     </fragment>
 
     <!--    <fragment-->

@@ -8,12 +8,6 @@ import androidx.fragment.app.Fragment
 
 open class BaseFragment: Fragment() {
 
-    fun showLoader(isVisible: Int){
-        if(activity is MainActivity){
-            (activity as MainActivity).setLoader(isVisible)
-        }
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         adjustFontScale(resources.configuration)
@@ -23,6 +17,8 @@ open class BaseFragment: Fragment() {
         configuration.fontScale = 1.0.toFloat()
         val metrics = resources.displayMetrics
         val wm = activity?.getSystemService(AppCompatActivity.WINDOW_SERVICE) as WindowManager
+
+        @Suppress("DEPRECATION")
         wm.defaultDisplay.getMetrics(metrics)
         metrics.scaledDensity = configuration.fontScale * metrics.density
         activity?.createConfigurationContext(configuration)

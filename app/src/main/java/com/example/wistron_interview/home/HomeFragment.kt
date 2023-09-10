@@ -76,11 +76,6 @@ class HomeFragment : BaseFragment() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        showLoader(View.GONE)
-    }
-
     companion object {
         var basePosition = 0
         private const val PREF_NAME = "Select_Language"

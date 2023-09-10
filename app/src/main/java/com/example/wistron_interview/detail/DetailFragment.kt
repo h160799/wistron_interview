@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.wistron_interview.BaseFragment
@@ -42,7 +43,6 @@ class DetailFragment : BaseFragment() {
         val imageList = place.images.map { it.src}
 
         if (imageList.isNotEmpty()) {
-            //照片輪播
             CycleViewPager2Helper(binding.imagePager)
                 .setAdapter(context?.let { DetailImageAdapter(imageList, it) })
                 .setDotsIndicator(
@@ -64,16 +64,15 @@ class DetailFragment : BaseFragment() {
         binding.titleTv.text = place.name
         binding.contentTv.text = place.introduction
         binding.contentUrl.text = place.url
+        binding.contentUrl.setOnClickListener {
+            val action = DetailFragmentDirections.actionNavigationDetailToNavigationWebView(place.url)
+            Navigation.findNavController(it).navigate(action)
+        }
 
         binding.back.setOnClickListener {
             findNavController().popBackStack()
         }
 
-
     }
 
-    override fun onResume() {
-        super.onResume()
-        showLoader(View.GONE)
-    }
 }
