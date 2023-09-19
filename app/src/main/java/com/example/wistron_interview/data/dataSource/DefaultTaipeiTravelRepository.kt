@@ -1,4 +1,4 @@
-package com.example.wistron_interview.data.DataSource
+package com.example.wistron_interview.data.dataSource
 
 import com.example.wistron_interview.data.Attraction
 import com.example.wistron_interview.data.remote.TaipeiTravelRemoteDataSource

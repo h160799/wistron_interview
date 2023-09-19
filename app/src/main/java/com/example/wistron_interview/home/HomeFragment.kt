@@ -1,6 +1,5 @@
 package com.example.wistron_interview.home
 
-import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,7 +10,6 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wistron_interview.BaseFragment
 import com.example.wistron_interview.R
-import com.example.wistron_interview.TaipeiTravelApplication
 import com.example.wistron_interview.data.DistrictNameZH
 import com.example.wistron_interview.databinding.FragmentHomeBinding
 import com.example.wistron_interview.ext.getVmFactory

@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.wistron_interview.attraction.AttractionViewModel
 import com.example.wistron_interview.data.AttractionParameters
-import com.example.wistron_interview.data.DataSource.TaipeiTravelRepository
+import com.example.wistron_interview.data.dataSource.TaipeiTravelRepository
 import com.example.wistron_interview.home.HomeViewModel
 
 @Suppress("UNCHECKED_CAST")

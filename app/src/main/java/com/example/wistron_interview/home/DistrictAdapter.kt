@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.wistron_interview.R
 import com.example.wistron_interview.data.AttractionParameters
 import com.example.wistron_interview.data.DistrictInfo
 import com.example.wistron_interview.data.DistrictNameCN
@@ -78,13 +79,18 @@ class DistrictAdapter(checkedItem: Int, private val itemHeights: MutableList<Int
         binding.root.tag = position
         binding.districtText.text = districtNames[position]
         binding.root.setOnClickListener(onItemClickListener)
-
         if (position in 1 until DistrictInfo.values().size + 1) {
             val selectedDistrict = DistrictInfo.values()[position-1]
             binding.districtImage.background = ContextCompat.getDrawable(
                 binding.districtImage.context, selectedDistrict.Image
             )
         }
+    }
+    override fun onViewRecycled(holder: ViewHolder) {
+        super.onViewRecycled(holder)
+        holder.binding.districtImage.background = ContextCompat.getDrawable(
+            holder.binding.districtImage.context,R.drawable.no_image
+        )
     }
 
     override fun getItemCount(): Int {

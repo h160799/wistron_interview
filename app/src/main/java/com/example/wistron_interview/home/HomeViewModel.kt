@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.wistron_interview.TaipeiTravelApplication
-import com.example.wistron_interview.data.DataSource.TaipeiTravelRepository
+import com.example.wistron_interview.data.dataSource.TaipeiTravelRepository
 import com.example.wistron_interview.data.LanguageTitle
 
 class HomeViewModel(private val taipeiTravelRepository: TaipeiTravelRepository) : ViewModel() {

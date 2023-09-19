@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">台北旅遊趣</string>
     <string name="languages_choose">Pilih Bahasa</string>
-    <string name="ok">Konfirmasi</string>
+    <string name="ok">OK</string>
     <string name="first_page_title">Nikmati Liburan di Taipei</string>
     <string name="second_page_title">Tempat Wisata</string>
     <string name="no_internet"> Anda tidak terhubung ke internet.</string>

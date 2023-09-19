@@ -7,6 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/district_image_bg"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -29,7 +30,7 @@
         android:id="@+id/district_src"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        app:layout_constraintStart_toStartOf="@id/district_image"
+        app:layout_constraintStart_toStartOf="@id/district_image_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         android:foregroundGravity="center"
         app:srcCompat="?android:attr/textSelectHandleLeft" />

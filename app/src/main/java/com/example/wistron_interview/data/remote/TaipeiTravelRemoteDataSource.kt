@@ -2,7 +2,7 @@ package com.example.wistron_interview.data.remote
 
 import com.example.wistron_interview.R
 import com.example.wistron_interview.data.Attraction
-import com.example.wistron_interview.data.DataSource.TaipeiTravelDataSource
+import com.example.wistron_interview.data.dataSource.TaipeiTravelDataSource
 import com.example.wistron_interview.network.ApiResult
 import com.example.wistron_interview.network.TaipeiTravelApi
 import com.example.wistron_interview.util.Logger

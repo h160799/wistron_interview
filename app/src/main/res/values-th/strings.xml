@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">台北旅遊趣</string>
     <string name="languages_choose">เลือกภาษา</string>
-    <string name="ok">ยืนยัน</string>
+    <string name="ok">OK</string>
     <string name="first_page_title">เที่ยวไต้หวันให้สนุก</string>
     <string name="second_page_title">แหล่งท่องเที่ยวใกล้เคียง</string>
     <string name="no_internet">คุณไม่ได้เชื่อมต่อกับอินเทอร์เน็ต</string>

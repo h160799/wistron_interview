@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">台北旅遊趣</string>
     <string name="languages_choose">언어 선택</string>
-    <string name="ok">확인</string>
+    <string name="ok">OK</string>
     <string name="first_page_title">타이페이 여행 즐기기</string>
     <string name="second_page_title">근처 관광지</string>
     <string name="no_internet">인터넷에 연결되어 있지 않습니다.</string>

@@ -40,11 +40,8 @@ class DetailFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var imageList = place.images.map { it.src}
-
-        if (imageList.isEmpty()) {
-            imageList = listOf("")
-        }
+        val defaultImageList = listOf("")
+        val imageList = place.images.map { it.src }.ifEmpty { defaultImageList }
 
         if (imageList.isNotEmpty()) {
             CycleViewPager2Helper(binding.imagePager)

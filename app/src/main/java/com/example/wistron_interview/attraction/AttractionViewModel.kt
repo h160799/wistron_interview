@@ -8,7 +8,7 @@ import com.example.wistron_interview.network.ApiResult
 import com.example.wistron_interview.data.Attraction
 import com.example.wistron_interview.data.AttractionParameters
 import com.example.wistron_interview.data.Place
-import com.example.wistron_interview.data.DataSource.TaipeiTravelRepository
+import com.example.wistron_interview.data.dataSource.TaipeiTravelRepository
 import com.example.wistron_interview.data.LanguageInfo
 import com.example.wistron_interview.data.LanguageType
 import com.example.wistron_interview.network.LoadApiStatus

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">台北旅遊趣</string>
     <string name="languages_choose">選擇語系</string>
-    <string name="ok">確定</string>
+    <string name="ok">OK</string>
     <string name="first_page_title">台北旅遊趣</string>
     <string name="second_page_title">附近旅遊景點</string>
     <string name="no_internet">您尚未連接網路</string>

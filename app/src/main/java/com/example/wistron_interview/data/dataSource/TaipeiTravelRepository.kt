@@ -1,5 +1,6 @@
-package com.example.wistron_interview.data
+package com.example.wistron_interview.data.dataSource
 
+import com.example.wistron_interview.data.Attraction
 import com.example.wistron_interview.network.ApiResult
 
 interface TaipeiTravelRepository {

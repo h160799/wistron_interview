@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">台北旅遊趣</string>
     <string name="languages_choose">Seleccionar idioma</string>
-    <string name="ok">Confirmar</string>
+    <string name="ok">OK</string>
     <string name="first_page_title">Disfruta de Taiwán</string>
     <string name="second_page_title">Atracciones turísticas cercanas</string>
     <string name="no_internet">No estás conectado a Internet.</string>
